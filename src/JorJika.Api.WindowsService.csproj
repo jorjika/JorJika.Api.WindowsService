@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>1.0.9</Version>
+    <Authors>JorJika</Authors>
+    <Company>JorJika.Net</Company>
+    <Description>Transform your .Net core Api into All in one service. With your self contained build for Win64 you are able to Install and run your Api as Windows service, Self host with double click or even host in IIS proxy. One build does everything.
+
+Usage =&gt;
+Use following code in Program.cs:
+public static void Main(string[] args)
+{
+       WebHostTools.Run&lt;Startup&gt;(args);
+}
+
+It will bind local ip address from first adapter and use port 5300. You can change these passing additional parameters after "args" parameter.</Description>
+    <Copyright>Copyright © JorJika.net 2018</Copyright>
+    <PackageLicenseUrl>http://jorjika.net</PackageLicenseUrl>
+    <PackageProjectUrl>http://jorjika.net</PackageProjectUrl>
+    <PackageIconUrl>http://jorjika.net/j.png</PackageIconUrl>
+    <PackageTags>jorjika, jorjika.api, windowsservice</PackageTags>
+    <PackageReleaseNotes>v1.0.7 =&gt; Added event "WebHostBuilderBeforeBuild". This gives ability to configure builder on your choice. Event raises before "IWebHostBuilder.Build()" command.
+v1.0.8 =&gt; Added command --docker. If applied "*" will be used for binding in kestrel.
+v1.0.9 =&gt; Bug fixed parsing Uri.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.WindowsServices" Version="2.1.1" />
+  </ItemGroup>
+
+</Project>
