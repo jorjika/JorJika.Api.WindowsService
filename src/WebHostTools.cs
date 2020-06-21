@@ -223,7 +223,7 @@ namespace JorJika.Api.WindowsService
                 Uri hostUri = new Uri(pathUrl.Replace("*", "127.0.0.1")); //for docker
 
                 var builder = WebHost.CreateDefaultBuilder(args.Where(arg => arg != "--console" && arg != "--service" && arg != "--debugger").ToArray())
-                 .UseKestrel()
+                 .UseKestrel(op => op.AddServerHeader = false)
                  .UseUrls($"{hostUri.Scheme}://{(mode == "--docker" ? "*" : hostUri.Host)}:{hostUri.Port}")
                  .UseContentRoot(pathToContentRoot)
                  .UseStartup<TStartup>();
